@@ -1,0 +1,147 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    box-sizing: border-box;
+    }
+
+body{
+    line-height: 1.618rem;
+    color: #444;
+    overflow-y: scroll;
+}
+
+.wrapper{
+        max-width: 50rem;
+        width: 100%;
+        margin: 1rem auto;
+        text-align: center;
+        z-index: -1;
+}
+
+.rotate{
+        display: none;
+}
+
+.rotate-label{
+            display: inline-block;
+            margin-left: 0.5rem;
+            background: #2980b9;
+            color: #fff;
+            border-radius: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            transition: all 0.25s;
+}
+
+.rotate:checked + .rotate-label{
+    background: #3498db;
+}
+
+.perspective{
+                position: relative;
+                z-index: -1;
+                perspective: 2000px;
+                perspective-origin: 25rem -150px;
+}
+
+.cube{
+       position: relative;
+       width: 400px;
+       margin: 3.5rem auto;
+       transform-style: preserve-3d;
+       transition: all 0.5s;
+}
+
+.cube div{
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        opacity: 0.95;
+}
+
+.cube img{
+        max-height: 100%;
+        max-width: 100%;
+}
+
+#rotate:checked ~ .perspective > .cube{
+
+    animation:rotate 10s infinite linear;
+}
+
+#front:checked ~ .perspective > .cube{
+
+    transform: rotateX(0deg) rotateY(odeg);
+    animation: none;
+}
+
+#left:checked ~ .perspective > .cube{
+
+    transform: rotateX(0deg) rotateY(90deg);
+    animation: none;
+}
+
+#back:checked ~ .perspective > .cube{
+
+    transform: rotateX(0deg) rotateY(180deg);
+    animation: none;
+}
+
+#right:checked ~ .perspective > .cube{
+    
+    transform: rotateX(0deg) rotateY(270deg);
+    animation: none;
+}
+
+#top:checked ~ .perspective > .cube{
+
+    transform: rotateX(-90deg) rotateY(0deg) translateZ(200px) translateY(-200px);
+    animation: none;
+            }
+
+#bottom:checked ~ .perspective > .cube{
+
+    transform: rotateX(90deg) rotateY(0deg) translateZ(-120px) translateY(200px);
+    animation: none;
+}        
+
+.front{
+
+    transform: translateZ(200px);
+}
+
+.back{
+
+    transform: translateZ(-200px) rotateY(180deg);
+}
+
+.left{
+
+    transform: rotateY(270deg) translateX(-200px);
+    transform-origin: center left;
+}
+
+.right{
+
+    transform: rotateY(-270deg) translateX(200px);
+    transform-origin: top right;
+}
+
+.top{
+
+    transform: rotateX(90deg) translateY(-200px);
+    transform-origin: top center;
+}
+
+.bottom{
+
+    transform: rotateX(-90deg) translateY(200px);
+    transform-origin: bottom center;
+}
+
+@keyframes rotate
+{
+from{transform: rotateY(0deg);}
+to{transform: rotateY(360deg);}    
+}
