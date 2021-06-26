@@ -22,4 +22,4 @@ https://www.w3schools.com/cssref/css3_pr_perspective.asp
 
 ## Project Preview:
 
-(https://ali-tahir4024.github.io/3D-project/)
+[3D Cube Project](https://alitahir4024.github.io/3D-project/)
